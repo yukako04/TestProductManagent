@@ -3,6 +3,8 @@ package com.ateam;
 import java.util.Scanner;
 
 import com.ateam.create.ProductCreate;
+import com.ateam.delete.ProductDelete;
+import com.ateam.edit.ProductEdit;
 import com.ateam.search.ProductSearch;
 
 public class Menu {
@@ -38,11 +40,16 @@ public class Menu {
 				ProductCreate productCreate = new ProductCreate();
 				productCreate.execute();
 				
-				
 			} else if (modeStr.equals("3")) {
-				System.out.println("商品情報を変更します");
+				//System.out.println("商品情報を変更します");
+				ProductEdit productEdit = new ProductEdit();
+				productEdit.execute();
+				
 			} else if (modeStr.endsWith("4")) {
-				System.out.println("商品情報を削除します");
+				//System.out.println("商品情報を削除します");
+				ProductDelete productDelete = new ProductDelete();
+				productDelete.execute();
+				
 			} else {
 				System.out.println("メニュー番号が間違っています。正しい値を入力してください。");
 			}
