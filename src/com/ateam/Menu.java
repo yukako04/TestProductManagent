@@ -2,6 +2,7 @@ package com.ateam;
 
 import java.util.Scanner;
 
+import com.ateam.comon.CsvUtil;
 import com.ateam.create.ProductCreate;
 import com.ateam.delete.ProductDelete;
 import com.ateam.edit.ProductEdit;
@@ -34,6 +35,9 @@ public class Menu {
 				//System.out.println("商品情報を検索します");
 				ProductSearch productSearch = new ProductSearch();
 				productSearch.execute();
+				CsvUtil csvUtil = new CsvUtil();
+				//csvUtil.extracted();
+				
 				
 			} else if (modeStr.equals("2")) {
 				//System.out.println("商品情報を登録します");

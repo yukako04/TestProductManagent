@@ -5,16 +5,20 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 public class CsvUtil {
-
 	FileInputStream fi = null;
 	InputStreamReader is = null;
 	BufferedReader br = null;
-	{
 
+	public CsvUtil(){
+	}
+
+	public void extracted() {
+		FileInputStream fi;
+		InputStreamReader is;
 		try {
 			//読み込みファイルのインスタンス生成
 			//ファイル名を指定
-			fi = new FileInputStream("Sampledata.csv");
+			fi = new FileInputStream("C:\\Users\\yuka0\\Downloads\\Sampledata.csv");
 			is = new InputStreamReader(fi);
 			br = new BufferedReader(is);
 
