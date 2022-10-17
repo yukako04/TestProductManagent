@@ -12,7 +12,7 @@ public class CsvUtil {
 	public CsvUtil(){
 	}
 
-	public void extracted() {
+	public void execute() {
 		FileInputStream fi;
 		InputStreamReader is;
 		try {
@@ -47,8 +47,6 @@ public class CsvUtil {
 					for(String column : arr) {
 						System.out.println(column + ":" + data[colno]);
 						colno++;
-						
-						
 					}
 				}
 			

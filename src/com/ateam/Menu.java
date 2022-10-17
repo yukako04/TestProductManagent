@@ -36,7 +36,7 @@ public class Menu {
 				ProductSearch productSearch = new ProductSearch();
 				productSearch.execute();
 				CsvUtil csvUtil = new CsvUtil();
-				csvUtil.extracted();
+				csvUtil.execute();
 				
 				
 			} else if (modeStr.equals("2")) {
