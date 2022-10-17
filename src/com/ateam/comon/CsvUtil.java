@@ -18,8 +18,11 @@ public class CsvUtil {
 		try {
 			//読み込みファイルのインスタンス生成
 			//ファイル名を指定
+			//fileをインプット
 			fi = new FileInputStream("C:\\Users\\yuka0\\Downloads\\Sampledata.csv");
+			//
 			is = new InputStreamReader(fi);
+			
 			br = new BufferedReader(is);
 
 			//読み込み
@@ -27,10 +30,9 @@ public class CsvUtil {
 
 			int i = 0;
 
-			String[] arr = null;
+			String[] arr = null; //String[] arr = null;
 
 			while ((line = br.readLine()) != null) {
-
 				if (i == 0) {
 					//	arr = {"shohinid","shohincode","shohinmei","shohinbunrui,",
 					//			"hanbaitanka","shiiretanka","torokubi"};
@@ -41,9 +43,11 @@ public class CsvUtil {
 					System.out.println("データ" + i + "件目");
 					String[] data = line.split(",");
 					int colno = 0;
+					
 					for(String column : arr) {
 						System.out.println(column + ":" + data[colno]);
 						colno++;
+						
 						
 					}
 				}
