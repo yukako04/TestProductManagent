@@ -22,7 +22,6 @@ public class Menu {
 			System.out.print("0:終了 ");
 			System.out.println();
 			System.out.println("----------------------------------");
-			System.out.println(">>>");
 			Scanner mode = new Scanner(System.in);
 			String modeStr = mode.next();
 			System.out.println(">>>選択" + modeStr);
