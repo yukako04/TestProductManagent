@@ -16,16 +16,13 @@ public class ProductCreate {
 
 }
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class create {
 
@@ -40,36 +37,46 @@ public class create {
 		Member member = new Member();
 
 		create ms = new create();
-		BufferedReader br;
+		BufferedReader br = null;
 		String[] productInfo = null;
 		try {
 			br = new BufferedReader(new FileReader("C:\\Users\\sn\\Desktop\\sample.csv"));
 			while ((productInfo = br.readLine().split(",")) != null) {
 				System.out.println(java.util.Arrays.toString(productInfo));
 			}
-		} catch (FileNotFoundException e1) {
-		} catch (NullPointerException e1) {
-			e1.getMessage();
-		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
+		} catch (Exception e) {
 			addShohin();
+		} finally {
+			try {
+				br.close();
+				
+			} catch (IOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}			
 		}
-
 	}
-	
+
 	public static void addShohin() {
-		
+
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\sn\\Desktop\\sample.csv"));
-			bw.write("hhhhhh");
-		
+			BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\sn\\Desktop\\sample.csv", true));
+			bw.newLine();
+			bw.append("1,2,3,4,5,");
+			bw.newLine();
+			bw.append("5,4,3,2,1,");
+			bw.newLine();
+			bw.append("-,-,-,-,-,-");
+//			bw.append(s+ ",");
+			bw.close();
+			
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 }
 
 //		create c = new create();
