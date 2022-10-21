@@ -16,3 +16,19 @@ public class ProductSearch {
 	}
 
 }
+package common;
+
+public class End {
+	public static void main(String[] args) {
+		System.out.println("現在の処理を終了したい場合は、exitか\\qを入力してください");
+		String s1 = "exit";
+		String s2 = "\\q";
+		String s = new java.util.Scanner(System.in).nextLine();
+		if (s1.equals(s) || s2.equals(s)) {
+			System.out.println("プログラムを終了します。");
+			System.exit(0);
+		} else {
+			System.out.println("正しく入力してください。");
+		}
+	}
+}
