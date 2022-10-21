@@ -32,3 +32,14 @@ public class End {
 		}
 	}
 }
+
+package common;
+
+public class Canma {
+	public static void main(String[] args) {
+		String s = new java.util.Scanner(System.in).nextLine();
+		if(s.contains(",") || s.contains("、")) {
+			System.out.println("カンマは使用できません。");
+		}
+	}
+}
