@@ -14,68 +14,119 @@ import java.util.Scanner;
  */
 public class ProductCreate {
 	//public class create {
-	
+
 	public void execute() {
 		System.out.println("■商品情報を登録します");
 		System.out.println("商品情報を入力して下さい");
 		System.out.println("----------------------------------");
-		Scanner mode = new Scanner(System.in);
-		String modeStr = mode.next();
 
 		//Map<String, Member> memberMap;
 		//private static long id = 0;
 
-	//	memberMap = new HashMap<String, Member>();
-	//}
+		//	memberMap = new HashMap<String, Member>();
+		//}
 
-	//public static void main(String[] args) {
+		//public static void main(String[] args) {
 		//Member member = new Member();
 
 		BufferedReader br = null;
 		String str = "";
 		String[] productInfo = null;
 		try {
-			br = new BufferedReader(new FileReader("C:\\\\pleiades2022\\\\workspace\\\\TwiceProductManagent\\\\Sampledata.csv"));
-//			while ((productInfo = br.readLine().split(",")) != null) {
-			while ((str= br.readLine()) != null) {
+			br = new BufferedReader(
+					new FileReader("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv"));
+			//while ((productInfo = br.readLine().split(",")) != null) {
+			//処理を分けました
+			while ((str = br.readLine()) != null) {
 				productInfo = str.split(",");
-				System.out.println(java.util.Arrays.toString(productInfo));
-//				System.out.println(productInfo);
+				//				System.out.println(java.util.Arrays.toString(productInfo));
+				//				System.out.println(productInfo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				br.close();
-				
+
 			} catch (IOException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
-			}			
+			}
 		}
-		
+
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv", true));
-		  	bw.newLine();
-			bw.append("shohinid,shohincode,shohinmei,shohinnbunnrui,hannbaitanka,shiiretannka,tourokubi");
+			BufferedWriter bw = new BufferedWriter(
+					new FileWriter("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv", true));
+			Scanner mode = new Scanner(System.in);
+//			ID,Code,Product Name,Classification,Sales Price,purchase price,Registration Date
+//			A000000001,1000000000001,シャツ1,衣服,1000,100,20200818
+			System.out.println("商品ID>>>");
+			String productId = mode.next();
+
+			System.out.println("商品コード>>>");
+			String productCode = mode.next();
+
+			System.out.println("商品名>>>");
+			String productName = mode.next();
+
+			System.out.println("商品分類>>>");
+			String productKind = mode.next();
+
+			System.out.println("販売単価>>>");
+			String productPrice = mode.next();
+
+			System.out.println("仕入単価>>>");
+			String productPurchase = mode.next();
+
+			System.out.println("登録日>>>");
+			String registDate = mode.next();
+
+			String newLineStr = productId + "," + productCode + "," + productName + "," + productKind + ","
+					+ productPrice + "," + productPurchase + "," + registDate;
+
 			bw.newLine();
-			bw.append("商品ID,商品コード,商品名,商品分類,販売単価,仕入単価,登録日");
+			bw.append(newLineStr);
+
+			/*
 			bw.newLine();
-			bw.append("5,4,3,2,1,,");
+			bw.append("A999999999,9999999999999,まりも,未分類,1000,0,20220101");
 			bw.newLine();
+			bw.append("");
+			bw.newLine();
+			bw.append("");
+			bw.newLine();
+			bw.append("");
+			bw.newLine();
+			bw.append("");
+			bw.newLine();
+			bw.append("");
 			bw.append("-,-,-,-,-,-");
-			//			bw.append(s+ ",");
+			*/
+
 			bw.close();
-			
+
+			while (true) {
+				System.out.println("続けて商品を登録しますか？");
+				System.out.println("1:続けて登録する　2:メニューへ戻る>>>");
+				String modeStr = mode.next();
+
+				if (modeStr.equals("2")) {
+					System.out.println("");
+					System.exit(2);
+				} else if (modeStr.equals("1")) {
+
+				}
+
+			}
+
+			//			bw.append(s+ ",");
+
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		
-		
-		
+
 	}
-	
 
 }
 

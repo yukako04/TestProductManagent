@@ -27,10 +27,11 @@ public class ProductEdit {
 		data.changeInfoInput();
 
 		data.updata();
-
+	}
+	
 
 	public class Shohindata {
-		File file_name = new File("\\12_サンプルデータ.csv");//入力ファイル
+		File file_name = new File("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv");//入力ファイル
 		BufferedReader br = null;
 
 		//CSVファイルのデータを一行毎にコレクションに格納
@@ -53,10 +54,10 @@ public class ProductEdit {
 		String tx6;
 		String tx7;
 		String tx8;
-
+	
 		//入力された変更情報をコレクションに格納
 		List<String> txT = new ArrayList<String>();
-		
+	
 		//CSVファイルから商品情報を読み込むメソッド
 		public void dataLoad() {
 			try {
@@ -93,6 +94,7 @@ public class ProductEdit {
 			}
 
 		}
+	
 
 		//商品情報の変更する入力メソッド
 		public void changeInfoInput() {
@@ -218,5 +220,5 @@ public class ProductEdit {
 	}
 
 
-	}
+
 }
