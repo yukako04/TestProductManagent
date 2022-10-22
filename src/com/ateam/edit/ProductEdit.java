@@ -1,22 +1,5 @@
 package com.ateam.edit;
 
-import java.util.Scanner;
-
-public class ProductEdit {
-	public void execute() {
-		System.out.println("▲商品情報を変更します");
-		System.out.println("変更する商品IDを入力して下さい");
-		System.out.println("----------------------------------");
-		Scanner mode = new Scanner(System.in);
-		String modeStr = mode.next();
-		System.out.println("Keyword>>>");
-
-	}
-
-}
-
-
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,9 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class shohinHenkou2 {
-	public static void main(String[] args) {
-		shohinHenkou2 shohin = new shohinHenkou2();
+//public class shohinHenkou2 {
+public class ProductEdit {
+	public void execute() {
+		/*
+		System.out.println("▲商品情報を変更します");
+		System.out.println("変更する商品IDを入力して下さい");
+		System.out.println("----------------------------------");
+		Scanner mode = new Scanner(System.in);
+		String modeStr = mode.next();
+		System.out.println("Keyword>>>");
+		 */
+		
+		ProductEdit shohin = new ProductEdit();
 		Shohindata data = shohin.new Shohindata();
 		data.dataLoad();
 
@@ -35,7 +28,6 @@ public class shohinHenkou2 {
 
 		data.updata();
 
-	}
 
 	public class Shohindata {
 		File file_name = new File("\\12_サンプルデータ.csv");//入力ファイル
@@ -134,7 +126,7 @@ public class shohinHenkou2 {
 					tx6 = scanner.nextLine();
 					System.out.println();
 					
-　　　　　　　　　　　　　　　　　　　　　　//入力された商品コードがある要素数iをnumberに代入
+					//入力された商品コードがある要素数iをnumberに代入
 					number = i;
 					
                                         //入力された商品情報の変更内容をコレクションtxTに追加
@@ -161,7 +153,7 @@ public class shohinHenkou2 {
 			if (tx7.equals("Y")) {
 				for (int j = 0; j < txT.size(); j++) {
 					if (txT.get(j).isEmpty()) {
-					} else {　//空文字でない場合、入力された商品情報を上書き
+					} else {//空文字でない場合、入力された商品情報を上書き
 						list2.get(number)[j + 1] = txT.get(j);
 						if (txT.get(j).equals("null")) { //nullが入力されていると空文字で上書き(削除)
 							list2.get(number)[j + 1] = "";
@@ -225,4 +217,6 @@ public class shohinHenkou2 {
 
 	}
 
+
+	}
 }

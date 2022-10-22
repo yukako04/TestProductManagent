@@ -1,28 +1,25 @@
 package com.ateam.delete;
 
-import java.util.Scanner;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class ProductDelete {
-	public void execute() {
+	/*public void execute() {
 		System.out.println("「！商品情報を削除します！」");
 		System.out.println("削除する商品IDを入力して下さい");
 		System.out.println("----------------------------------");
 		Scanner mode = new Scanner(System.in);
 		String modeStr = mode.next();
 		System.out.println("Keyword>>>");
-
 	}
-
 }
+	 */
 
-package 商品管理システム;
+//public class 商品削除 {
+//	public static void main(String[] args) {
 
-import java.io.FileReader;
-import java.io.IOException;
-
-public class 商品削除 {
-	public static void main(String[] args) {
-		del();
+	public void execute() {
+	del();
 	}
 
 	    //ファイルの読み込み（動作しないので削除）
@@ -76,7 +73,7 @@ public class 商品削除 {
 			System.out.println("続けて商品を削除しますか？");
 		}
 		
-		System.out.print("１:続けて削除する　２：メニューへ戻る＞");
+		System.out.print("1:続けて削除する  2:メニューへ戻る＞");
 		int input2 = new java.util.Scanner(System.in).nextInt();
 		
 		if(input2 == 1) {
@@ -91,4 +88,7 @@ public class 商品削除 {
 	
 
 	}
-}
+
+		
+	}
+

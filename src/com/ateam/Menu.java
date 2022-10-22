@@ -31,22 +31,18 @@ public class Menu {
 				System.out.println("プログラムを終了します");
 				System.exit(0);
 			} else if (modeStr.equals("1")) {
-				//System.out.println("商品情報を検索します");
 				ProductSearch productSearch = new ProductSearch();
 				productSearch.execute();
 				
 			} else if (modeStr.equals("2")) {
-				//System.out.println("商品情報を登録します");
 				ProductCreate productCreate = new ProductCreate();
 				productCreate.execute();
 				
 			} else if (modeStr.equals("3")) {
-				//System.out.println("商品情報を変更します");
 				ProductEdit productEdit = new ProductEdit();
 				productEdit.execute();
 				
-			} else if (modeStr.endsWith("4")) {
-				//System.out.println("商品情報を削除します");
+			} else if (modeStr.equals("4")) {
 				ProductDelete productDelete = new ProductDelete();
 				productDelete.execute();
 				
@@ -54,6 +50,7 @@ public class Menu {
 				System.out.println("メニュー番号が間違っています。正しい値を入力してください。");
 			}
 		}
+	
 	}
 
 }
