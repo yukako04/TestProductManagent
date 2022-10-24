@@ -14,6 +14,7 @@ public class ProductSearch {
 		Scanner mode = new Scanner(System.in);
 		String modeStr = mode.next();
 
+		//csvファイルの読み込み
 		BufferedReader br = null;
 		String str = "";
 		String[] productInfo = null;
@@ -22,7 +23,8 @@ public class ProductSearch {
 					new FileReader("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv"));
 			while ((str = br.readLine()) != null) {
 				productInfo = str.split(",");
-								System.out.println(java.util.Arrays.toString(productInfo));
+				//★商品データを表示				
+				System.out.println(java.util.Arrays.toString(productInfo));
 				//				System.out.println(productInfo);
 			}
 		} catch (Exception e) {

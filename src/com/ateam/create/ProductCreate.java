@@ -35,7 +35,7 @@ public class ProductCreate {
 		try {
 			br = new BufferedReader(
 					new FileReader("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv"));
-			//while ((productInfo = br.readLine().split(",")) != null) {
+			//↓while ((productInfo = br.readLine().split(",")) != null) {
 			//処理を分けました
 			while ((str = br.readLine()) != null) {
 				productInfo = str.split(",");
