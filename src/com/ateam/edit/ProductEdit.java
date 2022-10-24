@@ -326,3 +326,7 @@ public class ProductEdit {
 			} catch (DateTimeParseException e) {
 				System.out.println("登録日は日付ではありません。８桁の日付で入力してくだい。");
 				checkRegistDate();
+			}
+		}
+	}
+}
