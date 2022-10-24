@@ -168,6 +168,11 @@ public class Shohin {
 
 
 
+
+
+
+
+
 //		create c = new create();
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in
 //				));
