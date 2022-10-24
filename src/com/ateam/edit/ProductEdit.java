@@ -27,7 +27,6 @@ public class ProductEdit {
 		data.changeInfoInput();
 
 		data.updata();
-	}
 	
 
 	public class Shohindata {
@@ -220,5 +219,5 @@ public class ProductEdit {
 	}
 
 
-
+	}
 }

@@ -35,6 +35,15 @@ public class ProductSearch {
 
 			}
 
+//			ID,Code,Product Name,Classification,Sales Price,purchase price,Registration Date
+//			A000000001,1000000000001,シャツ1,衣服,1000,100,20200818
+
+			
+			
+			
+			
+			
+			
 		}
 
 	}
