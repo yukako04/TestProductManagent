@@ -52,6 +52,7 @@ public class ProductDelete {
 			}
 
 			while (true) {
+				System.out.println("----------------------------------");
 				System.out.println("商品情報を削除します。");
 				System.out.println("削除する商品IDを入力してください。");
 				System.out.print("商品ID＞");
@@ -80,10 +81,13 @@ public class ProductDelete {
 					System.out.println("販売単価＝");
 					System.out.println("仕入単価＝");
 					System.out.println("登録日");
+
+					System.out.println("----------------------------------");
 					System.out.print("商品情報を削除しますか？Y/N＞");
 					String ｓ = new java.util.Scanner(System.in).nextLine();
 					if (ｓ.equals("Y")) {
 						System.out.println("商品情報を削除しました。");
+						System.out.println();
 						System.out.println("続けて商品を削除しますか？");
 					} else {
 						System.out.println("続けて商品を削除しますか？");
@@ -95,12 +99,13 @@ public class ProductDelete {
 					if (input2 == 1) {
 						//１の場合delメソッドのはじめに戻る処理
 						//		del();
-					} else {
+					}
+					{
 						//２の場合メニュー画面に戻る処理
 
 					}
 				}
-
+				return;
 			}
 
 		}

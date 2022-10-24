@@ -34,9 +34,8 @@ public class ProductSearch {
 				br.close();
 
 			} catch (IOException e) {
-
+				e.printStackTrace();
 			}
-
 		}
 
 	}

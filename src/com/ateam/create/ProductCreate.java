@@ -58,8 +58,8 @@ public class ProductCreate {
 			BufferedWriter bw = new BufferedWriter(
 					new FileWriter("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv", true));
 			Scanner mode = new Scanner(System.in);
-//			ID,Code,Product Name,Classification,Sales Price,purchase price,Registration Date
-//			A000000001,1000000000001,シャツ1,衣服,1000,100,20200818
+			//			ID,Code,Product Name,Classification,Sales Price,purchase price,Registration Date
+			//			A000000001,1000000000001,シャツ1,衣服,1000,100,20200818
 			System.out.println("商品ID>>>");
 			String productId = mode.next();
 

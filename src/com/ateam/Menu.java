@@ -33,24 +33,24 @@ public class Menu {
 			} else if (modeStr.equals("1")) {
 				ProductSearch productSearch = new ProductSearch();
 				productSearch.execute();
-				
+
 			} else if (modeStr.equals("2")) {
 				ProductCreate productCreate = new ProductCreate();
 				productCreate.execute();
-				
+
 			} else if (modeStr.equals("3")) {
 				ProductEdit productEdit = new ProductEdit();
 				productEdit.execute();
-				
+
 			} else if (modeStr.equals("4")) {
 				ProductDelete productDelete = new ProductDelete();
 				productDelete.execute();
-				
+
 			} else {
 				System.out.println("メニュー番号が間違っています。正しい値を入力してください。");
 			}
 		}
-	
+
 	}
 
 }

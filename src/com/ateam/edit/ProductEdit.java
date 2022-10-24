@@ -19,7 +19,7 @@ public class ProductEdit {
 		String modeStr = mode.next();
 		System.out.println("Keyword>>>");
 		 */
-		
+
 		ProductEdit shohin = new ProductEdit();
 		Shohindata data = shohin.new Shohindata();
 		data.dataLoad();
@@ -28,7 +28,6 @@ public class ProductEdit {
 
 		data.updata();
 	}
-	
 
 	public class Shohindata {
 		File file_name = new File("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv");//入力ファイル
@@ -41,7 +40,7 @@ public class ProductEdit {
 
 		//入力された商品IDの要素数を格納
 		int number;
-		
+
 		//入力されたtextを格納するString
 		String text;
 
@@ -54,10 +53,10 @@ public class ProductEdit {
 		String tx6;
 		String tx7;
 		String tx8;
-	
+
 		//入力された変更情報をコレクションに格納
 		List<String> txT = new ArrayList<String>();
-	
+
 		//CSVファイルから商品情報を読み込むメソッド
 		public void dataLoad() {
 			try {
@@ -94,7 +93,6 @@ public class ProductEdit {
 			}
 
 		}
-	
 
 		//商品情報の変更する入力メソッド
 		public void changeInfoInput() {
@@ -127,11 +125,11 @@ public class ProductEdit {
 					System.out.print("登録日[" + list2.get(i)[6] + "] > ");
 					tx6 = scanner.nextLine();
 					System.out.println();
-					
+
 					//入力された商品コードがある要素数iをnumberに代入
 					number = i;
-					
-                                        //入力された商品情報の変更内容をコレクションtxTに追加
+
+					//入力された商品情報の変更内容をコレクションtxTに追加
 					txT.add(tx1);
 					txT.add(tx2);
 					txT.add(tx3);
@@ -142,10 +140,10 @@ public class ProductEdit {
 				}
 
 			}
-			
+
 		}
-		
-                //商品情報を更新するメソッド
+
+		//商品情報を更新するメソッド
 		public void updata() {
 			System.out.print("商品情報を変更しますか？ Y/N >");
 			Scanner scanner = new Scanner(System.in);
@@ -210,15 +208,12 @@ public class ProductEdit {
 
 			}
 		}
-		
+
 		//入力された商品情報のチェックするメソッド
 		public void condition() {
-			
 
 		}
 
 	}
-
-
 
 }
