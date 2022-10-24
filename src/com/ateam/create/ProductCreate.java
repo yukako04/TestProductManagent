@@ -131,6 +131,43 @@ public class ProductCreate {
 
 }
 
+//商品クラスを作成してリストに入れ込んで重複確認しようとしたけど、無理でした
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Shohin {
+	Path path = Paths.get("C:\\\\pleiades\\\\2022-06\\\\workspace\\\\9999_登録用\\\\12_サンプルデータ.csv");
+	//	 List<String> csvList = new ArrayList<>();
+	//	 csvList = Files.readAllLines(path, Charset.forName("UTF-8"));
+
+	try
+	{
+		// CSVファイルの読み込み
+		List<String> lines = Files.readAllLines(path, Charset.forName("UTF-8"));
+		for (int i = 1; i < lines.size(); i++) {
+			String[] data = lines.get(i).split(",");
+
+			if (data.length > 3) {
+				// 読み込んだCSVファイルの内容を出力
+				System.out.print(data[0] + ",");
+				System.out.print(data[1] + ",");
+				System.out.print(data[2] + ",");
+				System.out.println(data[3]);
+			}
+		}
+	}catch(
+	Exception e)
+	{
+		System.out.println("ファイル読み込みに失敗");
+	}
+}}
+
+
+
 //		create c = new create();
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in
 //				));
