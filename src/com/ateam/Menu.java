@@ -13,6 +13,7 @@ public class Menu {
 		// TODO 自動生成されたメソッド・スタブ
 
 		while (true) {
+			System.out.println();
 			System.out.println("【メニュー】");
 			System.out.println("----------------------------------");
 			System.out.print("1:検索 ");

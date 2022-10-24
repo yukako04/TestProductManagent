@@ -41,27 +41,31 @@ public class ProductSearch {
 
 				} catch (IOException e) {
 				}
+			}
 				System.out.println("----------------------------------");
 
-				String ｓ = new java.util.Scanner(System.in).nextLine();
-				if (ｓ.equals("Y")) {
-					System.out.println();
-					System.out.println("続けて商品を検索しますか？");
-				} else {
-					System.out.println("続けて商品を検索しますか？");
+				//String ｓ = new java.util.Scanner(System.in).nextLine();
+
+				System.out.println();
+				System.out.println("続けて商品を検索しますか？");
+
+				System.out.print("1:続けて検索する 2:メニューへ戻る >" + modeStr);
+				//Scanner mode = new Scanner(System.in);
+				//String modeStr = mode.next();
+				//System.out.println(">>>選択" + modeStr);
+
+				if (modeStr.equals("2")) {
+					System.out.println("メニューに戻ります");
+					System.exit(2);
+				} else if (modeStr.equals("1")) {
+
+					System.out.println("処理を続行します");
 				}
 
-				System.out.print("1:続けて検索する 2:メニューへ戻る > 1");
-				int input2 = new java.util.Scanner(System.in).nextInt();
-
-				if (input2 == 1) {
-					//１の場合delメソッドのはじめに戻る処理
-					//		del();
-				}
+				return;
 			}
-			return;
 
 		}
 	}
 
-}
+

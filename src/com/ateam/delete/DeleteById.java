@@ -1,4 +1,4 @@
-package Delete_System;
+package com.ateam.delete;
 
 import java.io.*;
 import java.util.ArrayList;
