@@ -5,14 +5,17 @@ package com.ateam.delete;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDelete {
+	
+	String FILE_PATH = "C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv";
 
 	@SuppressWarnings("finally")
 	public void execute() {
@@ -34,13 +37,16 @@ public class ProductDelete {
 			
 			// ファイルの読み込み
 			try {
-				br = new BufferedReader(
-						new FileReader("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv") );
+//				br = new BufferedReader(
+//						new FileReader(FILE_PATH) );
+				
+				br = new BufferedReader(new InputStreamReader(new FileInputStream(FILE_PATH),"Shift-JIS"));
+				
 				while ((str = br.readLine()) != null) {
 					String[] productInfo = str.split(",");
 					if(productInfo[0].equals(deleteTargetId)) {
 						
-						hasDeleteLineFlag = true;
+						
 						
 						System.out.println("商品ID＝" + productInfo[0]);
 						System.out.println("商品コード＝" + productInfo[1]);
@@ -54,6 +60,8 @@ public class ProductDelete {
 						String inputConfirm = new java.util.Scanner(System.in).nextLine();
 						
 						if(inputConfirm.equals("Y")) {
+							hasDeleteLineFlag = true;
+							
 							System.out.print("商品情報を削除しますた！！");
 							System.out.println("商品ID＝" + productInfo[0]);
 							System.out.println("商品コード＝" + productInfo[1]);
@@ -87,7 +95,7 @@ public class ProductDelete {
 			if (hasDeleteLineFlag == true) {
 				BufferedWriter bw = null;
 				try {
-					bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv", false), "Shift_JIS"));
+					bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(FILE_PATH, false), "Shift_JIS"));
 					
 					for (String productInfoLine : productInfoList) {
 						bw.append(productInfoLine);
@@ -109,6 +117,7 @@ public class ProductDelete {
 			
 			hasDeleteLineFlag = false;
 	        
+			System.out.println();
 			System.out.println("----------------------------------");
 			System.out.println("続けて商品を削除しますか？");
 			System.out.print("1:続けて削除する 2:メニューへ戻る＞");

@@ -3,6 +3,8 @@ package com.ateam.search;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductSearch {
 //	private String[][] productInfoList;
@@ -22,28 +24,48 @@ public class ProductSearch {
 			
 			//csvファイルの読み込み
 			BufferedReader br = null;
-			String str = "";
+			String csvLineStr = "";
 			String[] productInfo = null;
+			List<String> searchTargetList = new ArrayList<String>();//検索にヒットした該当行を格納するためのリスト
+			
 			try {
 				br = new BufferedReader(
 						new FileReader("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv"));
-				while ((str = br.readLine()) != null) {
-					productInfo = str.split(",");
+				while ((csvLineStr = br.readLine()) != null) {
+					productInfo = csvLineStr.split(",");
+					
+					if(productInfo[0].contains(searchTargetKeyword)) {
+						searchTargetList.add(csvLineStr);
+					} else if(productInfo[1].contains(searchTargetKeyword)) {
+						searchTargetList.add(csvLineStr);
+						
+					} else if(productInfo[2].contains(searchTargetKeyword)) {
+						searchTargetList.add(csvLineStr);
+					}
+					
+					
+					/*
 					//★商品データを表示				
 					//System.out.println(java.util.Arrays.toString(productInfo));
 					//System.out.println(productInfo);
-					if(productInfo.equals(searchTargetKeyword)) {
-						System.out.print(productInfo[0]);
-						System.out.println(productInfo[1]);
-						System.out.println(productInfo[2]);
-					}else {
-						System.out.println(productInfo);
+					String inputConfirm = new java.util.Scanner(System.in).nextLine();
+					if(inputConfirm.equals("null")) {
+						System.out.println("------------------------------");
+											}else  {
+						//System.out.println("該当の商品IDが存在しませんでした。");
+						System.out.println(java.util.Arrays.toString(productInfo));
 						break;
 
 					}
-			
-					
+					*/
 				}
+				
+				if(searchTargetList.size() > 0) {
+					System.out.println("検索ヒット件数：" + searchTargetList.size());
+				} else {
+					System.out.println("検索キーワードに該当するデータはありません");
+				}
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -56,8 +78,8 @@ public class ProductSearch {
 				}
 			}
 			System.out.println("----------------------------------");
-			System.out.println("続けて商品を削除しますか？");
-			System.out.print("1:続けて削除する 2:メニューへ戻る＞");
+			System.out.println("続けて商品を検索しますか？");
+			System.out.print("1:続けて検索する 2:メニューへ戻る＞");
 			//キーボードから商品IDの入力を受け付ける
 			String inputNextMenu = new java.util.Scanner(System.in).next();
 			
