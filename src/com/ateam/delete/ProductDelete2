@@ -1,0 +1,169 @@
+
+//10月25日編集
+//安仲さんのを元に小林が手を加えました。
+//ファイルの書き込みは実装できていません。
+//それ以外は動作します。
+//読み込むcsvファイルの場所は書き換えてください。
+
+package ProductDelete;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import Mune.Menu;
+
+//商品情報を削除するメソッド
+public class ProductDelete {
+
+	BufferedReader br = null;
+	String str;
+	String[] productInfo;
+	List<String> productInfoList = new ArrayList<String>();
+	List<String[]> productInfoList2 = new ArrayList<String[]>();
+
+	//detaLoad、delメソッドを実行するメソッド
+	public void execute() {
+		dataLoad();
+		del();
+	}
+
+	//csvファイルを読み込むメソッド
+	public void dataLoad() {
+		try {
+			br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(
+							"/Applications/Eclipse_2022-06.app/Contents/workspace/商品管理システム/src/12_サンプルデータ.csv"),
+					"Shift-JIS"));
+
+			while ((str = br.readLine()) != null) {
+				productInfoList.add(str);
+				productInfoList2.add(str.split(",", -1));
+
+			}
+			//確認用
+			//System.out.println("productInfoList => " + productInfoList);
+			for (int i = 0; i < productInfoList2.size(); i++) {
+				System.out.println("productInfoList2(" + i + ") => " + Arrays.toString(productInfoList2.get(i)));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+
+			} catch (IOException e) {
+
+			}
+		}
+	}
+
+	//商品情報を削除するメソッド
+	public void del() {
+		while (true) {
+			System.out.println("----------------------------------");
+			System.out.println("商品情報を削除します。");
+			System.out.println("削除する商品IDを入力してください。");
+			System.out.print("商品ID＞");
+
+			//キーボードから商品IDの入力を受け付ける
+			String deleteTargetId = new java.util.Scanner(System.in).next();
+
+			//ここにIDチェックの処理を書く
+			//booleanでtrueかfalseかチェックしていく
+			//要素でデータ格納して配列で細かいところをいれる
+			String[] deleteProductInfo = null;
+			for (String[] product : productInfoList2) {
+				if (product[0].equals(deleteTargetId)) {
+					deleteProductInfo = product;
+					break;
+				}
+			}
+
+			if (deleteProductInfo == null) {
+				System.out.println("存在しない商品IDです。商品IDを確認してくだい");
+			} else {
+
+				System.out.println("商品ID＝" + deleteProductInfo[0]);
+				System.out.println("商品コード＝" + deleteProductInfo[1]);
+				System.out.println("商品名＝" + deleteProductInfo[2]);
+				System.out.println("商品分類＝" + deleteProductInfo[3]);
+				System.out.println("販売単価＝" + deleteProductInfo[4]);
+				System.out.println("仕入単価＝" + deleteProductInfo[5]);
+				System.out.println("登録日=" + deleteProductInfo[6]);
+
+				System.out.println("----------------------------------");
+				System.out.print("商品情報を削除しますか？Y/N＞");
+				String ｓ = new java.util.Scanner(System.in).nextLine();
+
+				//商品情報を削除する場合
+				if (ｓ.equals("Y")) {
+					System.out.println("商品情報を削除しました。");
+
+					System.out.println("商品ID＝" + deleteProductInfo[0]);
+					System.out.println("商品コード＝" + deleteProductInfo[1]);
+					System.out.println("商品名＝" + deleteProductInfo[2]);
+					System.out.println("商品分類＝" + deleteProductInfo[3]);
+					System.out.println("販売単価＝" + deleteProductInfo[4]);
+					System.out.println("仕入単価＝" + deleteProductInfo[5]);
+					System.out.println("登録日=" + deleteProductInfo[6]);
+
+					//削除するproductInfoList2の要素数を格納するindex
+					int index = 0;
+
+					//入力した商品IDが格納されているproductInfoList2の要素数を探す
+					for (int i = 0; i < productInfoList2.size(); i++) {
+						if (deleteTargetId.equals(productInfoList2.get(i)[0])) {
+
+							//格納されている要素数iをindexに代入
+							index = i;
+						}
+					}
+
+					//削除する商品情報に空文字を入れる(商品情報の削除)
+					for (int i = 0; i < productInfoList2.get(index).length; i++) {
+						productInfoList2.get(index)[i] = (" ");
+					}
+
+					//確認用
+					for (int i = 0; i < productInfoList2.size(); i++) {
+						System.out
+								.println("lproductInfoList2(" + i + ") => " + Arrays.toString(productInfoList2.get(i)));
+					}
+
+					System.out.println();
+					System.out.println("続けて商品を削除しますか？");
+					
+				//商品情報を削除しない場合
+				} else {
+					System.out.println("続けて商品を削除しますか？");
+				}
+
+				//処理を促す入力メッセージ
+				System.out.print("1:続けて削除する  2:メニューへ戻る＞");
+				int input2 = new java.util.Scanner(System.in).nextInt();
+
+				//１の場合delメソッドのはじめに戻る処理
+				if (input2 == 1) {
+
+					del();
+					//execute();
+
+				} else {
+
+					//２の場合メニュー画面に戻る処理
+					//return;
+					
+					Menu.main(null);
+
+				}
+			}
+		}
+	}
+
+}
