@@ -65,7 +65,8 @@ public class ProductSearch {
 				if(searchTargetList.size() > 0) {
 					System.out.println("検索結果：" + searchTargetList);
 				} else {
-					System.out.println("検索キーワードに該当しません。" + csvLineStr + productInfo);
+					System.out.println("検索キーワードに該当しません。" );
+					System.out.println(productInfo);
 				}
 				
 			} catch (Exception e) {
