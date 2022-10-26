@@ -1,7 +1,5 @@
 package com.ateam.edit;
 
-package ProductEdit;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,14 +17,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import Menu.Menu;
+import com.ateam.Menu;
 
 public class ProductEdit {
 
 	//Scannerクラスのインスタンスを作成
 	Scanner scanner = new Scanner(System.in);
 	//入力ファイル
-	File file_name = new File("C:\\pleiades\\2022-06\\workspace\\ProductManage\\12_サンプルデータ.csv");
+	File file_name = new File("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv");
 	BufferedReader br = null;
 
 	//CSVファイルのデータを一行毎にコレクションに格納
@@ -176,7 +174,7 @@ public class ProductEdit {
 			try {
 				// 出力ファイルの作成
 				FileWriter fw = new FileWriter(
-						"C:\\\\pleiades\\\\2022-06\\\\workspace\\\\ProductManage\\\\12_サンプルデータ.csv",
+						"C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv",
 						false);
 
 				// PrintWriterクラスのオブジェクトを生成
@@ -217,7 +215,7 @@ public class ProductEdit {
 				//メニューに戻るを選択した場合、Menuクラスmainメソッドを呼び出す
 			} else if (text2.equals("2")) {
 				System.out.println("メニューに戻ります。");
-				Menu.main(null);
+			    Menu.main(null);
 			}
 
 			//変更しない場合の処理
@@ -237,7 +235,7 @@ public class ProductEdit {
 				//メニューに戻るを選択した場合、Menuクラスmainメソッドを呼び出す
 			} else if (text2.equals("2")) {
 				System.out.println("メニューに戻ります。");
-				Menu.main(null);
+				//●Menu.main(null);
 			}
 		}
 	}

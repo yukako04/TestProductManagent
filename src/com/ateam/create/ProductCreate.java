@@ -1,4 +1,4 @@
-package ProductCreate;
+package com.ateam.create;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import Menu.Menu;
+import com.ateam.Menu;
 
 /*
 	public void execute() {
@@ -33,7 +33,7 @@ public class ProductCreate {
 	//商品情報毎にも分けたデータを格納
 	List<String[]> list2 = new ArrayList<String[]>();
 	
-	File file_name = new File("C:\\pleiades\\2022-06\\workspace\\ProductManage\\12_サンプルデータ.csv");
+	File file_name = new File("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv");
 	BufferedReader br = null;
 
 	String productId;
