@@ -1,6 +1,4 @@
 
-//10月24日　編集分
-
 package com.ateam.delete;
 
 import java.io.BufferedReader;

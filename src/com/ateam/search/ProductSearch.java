@@ -1,23 +1,26 @@
 package com.ateam.search;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductSearch {
 //	private String[][] productInfoList;
 
+	String FILE_PATH = "C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv";
+
 	public void execute() {
 		while (true) {
+			//Scanner mode = new Scanner(System.in);
+			//String modeStr = mode.next();
 			System.out.println("----------------------------------");
 			System.out.println("★商品検索を実行します");
 			System.out.println("検索キーワードを入力して下さい");
 			System.out.println("----------------------------------");
 			System.out.println("Keyword>>>");
-			//Scanner mode = new Scanner(System.in);
-			//String modeStr = mode.next();
 			//キーボードからキーワードの入力を受け付ける
 			@SuppressWarnings("resource")
 			String searchTargetKeyword = new java.util.Scanner(System.in).nextLine();
@@ -29,8 +32,7 @@ public class ProductSearch {
 			List<String> searchTargetList = new ArrayList<String>();//検索にヒットした該当行を格納するためのリスト
 			
 			try {
-				br = new BufferedReader(
-						new FileReader("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv"));
+				br = new BufferedReader(new InputStreamReader(new FileInputStream(FILE_PATH),"Shift-JIS"));
 				while ((csvLineStr = br.readLine()) != null) {
 					productInfo = csvLineStr.split(",");
 					
@@ -61,9 +63,9 @@ public class ProductSearch {
 				}
 				
 				if(searchTargetList.size() > 0) {
-					System.out.println("検索ヒット件数：" + searchTargetList.size());
+					System.out.println("検索結果：" + searchTargetList);
 				} else {
-					System.out.println("検索キーワードに該当するデータはありません");
+					System.out.println("検索キーワードに該当しません。" + csvLineStr + productInfo);
 				}
 				
 			} catch (Exception e) {
