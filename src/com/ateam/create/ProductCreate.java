@@ -1,236 +1,52 @@
-
-package com.ateam.create;
+package ProductCreate;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
-
-/*
-	public void execute() {
-		System.out.println("Keyword>>>");
- */
-public class ProductCreate {
-	//public class create {
-
-	public void execute() {
-		System.out.println("■商品情報を登録します");
-		System.out.println("商品情報を入力して下さい");
-		System.out.println("----------------------------------");
-
-		//Map<String, Member> memberMap;
-		//private static long id = 0;
-
-		//	memberMap = new HashMap<String, Member>();
-		//}
-
-		//public static void main(String[] args) {
-		//Member member = new Member();
-
-		BufferedReader br = null;
-		String str = "";
-		String[] productInfo = null;
-		try {
-			br = new BufferedReader(
-					new FileReader("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv"));
-			//↓while ((productInfo = br.readLine().split(",")) != null) {
-			//処理を分けました
-			while ((str = br.readLine()) != null) {
-				productInfo = str.split(",");
-				//				System.out.println(java.util.Arrays.toString(productInfo));
-				//				System.out.println(productInfo);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				br.close();
-
-			} catch (IOException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-		}
-
-		try {
-			BufferedWriter bw = new BufferedWriter(
-					new FileWriter("C:\\pleiades2022\\workspace\\TwiceProductManagent\\Sampledata.csv", true));
-			Scanner mode = new Scanner(System.in);
-			//			ID,Code,Product Name,Classification,Sales Price,purchase price,Registration Date
-			//			A000000001,1000000000001,シャツ1,衣服,1000,100,20200818
-			System.out.println("商品ID>>>");
-			String productId = mode.next();
-
-			System.out.println("商品コード>>>");
-			String productCode = mode.next();
-
-			System.out.println("商品名>>>");
-			String productName = mode.next();
-
-			System.out.println("商品分類>>>");
-			String productKind = mode.next();
-
-			System.out.println("販売単価>>>");
-			String productPrice = mode.next();
-
-			System.out.println("仕入単価>>>");
-			String productPurchase = mode.next();
-
-			System.out.println("登録日>>>");
-			String registDate = mode.next();
-
-			String newLineStr = productId + "," + productCode + "," + productName + "," + productKind + ","
-					+ productPrice + "," + productPurchase + "," + registDate;
-
-			bw.newLine();
-			bw.append(newLineStr);
-
-			/*
-			bw.newLine();
-			bw.append("A999999999,9999999999999,まりも,未分類,1000,0,20220101");
-			bw.newLine();
-			bw.append("");
-			bw.newLine();
-			bw.append("");
-			bw.newLine();
-			bw.append("");
-			bw.newLine();
-			bw.append("");
-			bw.newLine();
-			bw.append("");
-			bw.append("-,-,-,-,-,-");
-			*/
-
-			bw.close();
-
-			while (true) {
-				System.out.println("続けて商品を登録しますか？");
-				System.out.println("1:続けて登録する　2:メニューへ戻る>>>");
-				String modeStr = mode.next();
-
-				if (modeStr.equals("2")) {
-					System.out.println("");
-					System.exit(2);
-				} else if (modeStr.equals("1")) {
-
-				}
-
-			}
-
-			//			bw.append(s+ ",");
-
-		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-
-		return;
-	}
-
-}
-----------------------------------------------------------------------------------------------------------
-//商品クラスを作成してリストに入れ込んで重複確認しようとしたけど、無理でした
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-public class Shohin {
-	Path path = Paths.get("C:\\\\pleiades\\\\2022-06\\\\workspace\\\\9999_登録用\\\\12_サンプルデータ.csv");
-	//	 List<String> csvList = new ArrayList<>();
-	//	 csvList = Files.readAllLines(path, Charset.forName("UTF-8"));
-
-	try
-	{
-		// CSVファイルの読み込み
-		List<String> lines = Files.readAllLines(path, Charset.forName("UTF-8"));
-		for (int i = 1; i < lines.size(); i++) {
-			String[] data = lines.get(i).split(",");
-
-			if (data.length > 3) {
-				// 読み込んだCSVファイルの内容を出力
-				System.out.print(data[0] + ",");
-				System.out.print(data[1] + ",");
-				System.out.print(data[2] + ",");
-				System.out.println(data[3]);
-			}
-		}
-	}catch(
-	Exception e)
-	{
-		System.out.println("ファイル読み込みに失敗");
-	}
-}}
-
-
------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-//		create c = new create();
-//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in
-//				));
-//		String str = "";
-//		boolean end = false;
-//////		try {
-////			while(!end) {
-////				System.out.println();		
-////			}
-////		}
-//	}
-
-/*	 public void entry(BufferedReader br) throws IOException{
-		 
-		 
-		System.out.println("商品IDを入力してください。");	
-		
-		Member.setName(br.readLine());
-		while(true) {
-		if (!member.matches("[0-9a-zA-Z\\-\\_]+")) {
-			System.out.print("半角英数とハイフン、アンダースコアのみ入力できます");
-			continue;
-		if (member.length != 10) {
-			System.out.println("商品IDは10桁で入力してください。");
-			continue;
-		} else {
-			System.out.println("商品ID >" + member);
-			break;
-//		}
-		}}
-	 }}}*/
-//		}	catch (IOException e) {
-//			System.out.println(e);
-//		}
-
-
-
-
-package register;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
+
+import Menu.Menu;
 
 /*
 	public void execute() {
 		System.out.println("Keyword>>>");
  */
 public class ProductCreate {
-	//public class create {
+	//Scannerクラスのインスタンスを作成
+	Scanner scanner = new Scanner(System.in);
+	
+	//CSVファイルのデータを一行毎にコレクションに格納
+	List<String> list = new ArrayList<String>();
+
+	//商品情報毎にも分けたデータを格納
+	List<String[]> list2 = new ArrayList<String[]>();
+	
+	File file_name = new File("C:\\pleiades\\2022-06\\workspace\\ProductManage\\12_サンプルデータ.csv");
+	BufferedReader br = null;
+
+	String productId;
+	String productCode;
+	String productName;
+	String productKind;
+	String productPrice;
+	String productPurchase;
+	String registDate;
 
 	public void execute() {
-		System.out.println("■商品情報を登録します");
-		System.out.println("商品情報を入力して下さい");
-		System.out.println("----------------------------------");
+		dataLoad();
+		create();
 
 		//Map<String, Member> memberMap;
 		//private static long id = 0;
@@ -240,22 +56,29 @@ public class ProductCreate {
 
 		//public static void main(String[] args) {
 		//Member member = new Member();
+	}
 
-		BufferedReader br = null;
+	public void dataLoad() {
+		
 		String str = "";
 		String[] productInfo = null;
 		try {
-			br = new BufferedReader(
-					new FileReader("C:\\pleiades\\2022-06\\workspace\\GroupWork\\12_サンプルデータ.csv"));
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(file_name), "Shift-JIS"));
+
 			//↓while ((productInfo = br.readLine().split(",")) != null) {
 			//処理を分けました
 			while ((str = br.readLine()) != null) {
 				productInfo = str.split(",");
-				//				System.out.println(java.util.Arrays.toString(productInfo));
-				//				System.out.println(productInfo);
+				//リストにCSVの1行ごとのデータを追加
+				list.add(str);
+				//商品情報毎にも分けたデータを追加
+				list2.add(str.split(",", -1));
+
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		} finally {
 			try {
 				br.close();
@@ -265,140 +88,278 @@ public class ProductCreate {
 				e.printStackTrace();
 			}
 		}
+	}
 
-		try {
-			BufferedWriter bw = new BufferedWriter(
-					new FileWriter("C:\\pleiades\\2022-06\\workspace\\GroupWork\\12_サンプルデータ.csv", true));
-			Scanner mode = new Scanner(System.in);
-			//			ID,Code,Product Name,Classification,Sales Price,purchase price,Registration Date
-			//			A000000001,1000000000001,シャツ1,衣服,1000,100,20200818
+	
+	
+	public void create() {
 
-			System.out.println("商品ID>>>");
-			String productId = mode.next();
-　　　　　　　　　　　　　
-			while (true) {
-				System.out.println("商品コード>>>");
-				String productCode = mode.next();
-				if (productCode.matches("[0-9]{13}")) {
-				} else {
-					System.out.println("半角数字13桁で入力してください");
-					continue;
-				}
-　　　　　　　　　　　　　　　　　//まだわからず出来ていません
-				System.out.println("商品名>>>");
-				String productName = mode.next();
-				//	if (productName.length() != 0) {
-				//	} else {
-				//		System.out.println("一文字以上入力してください。");
-				//	}
+		System.out.println("商品情報を登録します。");
+		System.out.println("商品情報を入力してください。");
+		System.out.println();
 
-				System.out.println("商品分類>>>");
-				String productKind = mode.next();
+		checkId();
 
-				while (true) {
-					System.out.println("販売単価>>>");
-					String productPrice = mode.next();
-					if (productPrice.matches("[0-9]{0,8}")) {
-					} else {
-						System.out.println("半角数字8桁以下を入力してください");
-						continue;
-					}
+		checkCode();
 
-					while (true) {
-						System.out.println("仕入単価>>>");
-						String productPurchase = mode.next();
-						if (productPrice.matches("[0-9]{0,8}")) {
-						} else {
-							System.out.println("半角数字8桁以下を入力してください");
-						}
-						
-　　　　　　　　　　　　　　　　　　　　　　　　　　//ここもまだわからず出来ていません
-						System.out.println("登録日>>>");
-						String registDate = mode.next();
-						//[0-9]{4}/([1-9]|[0-2])/([1-9]|[12][0-9]|[01])
+		checkName();
 
-						String newLineStr = productId + "," + productCode + "," + productName + "," + productKind + ","
-								+ productPrice + "," + productPurchase + "," + registDate;
+		checkKind();
 
-						bw.newLine();
-						bw.append(newLineStr);
+		checkPrice();
 
-						/*
-						bw.newLine();
-						bw.append("A999999999,9999999999999,まりも,未分類,1000,0,20220101");
-						bw.newLine();
-						bw.append("");
-						bw.newLine();
-						bw.append("");
-						bw.newLine();
-						bw.append("");
-						bw.newLine();
-						bw.append("");
-						bw.newLine();
-						bw.append("");
-						bw.append("-,-,-,-,-,-");
-						*/
+		checkPurchase();
 
-						bw.close();
+		checkRegistDate();
 
-						while (true) {
-							System.out.println("続けて商品を登録しますか？");
-							System.out.println("1:続けて登録する　2:メニューへ戻る>>>");
-							String modeStr = mode.next();
+		//入力された変更情報をコレクションに格納
+		String[] inputInfo = { productId, productCode, productName, productKind, productPrice, productPurchase,
+				registDate };
 
-							if (modeStr.equals("2")) {
-								System.out.println("");
-								System.exit(2);
-							} else if (modeStr.equals("1")) {
-							}
-						}
-					}
+		System.out.println();
 
-				}
+		System.out.println("商品情報を登録しますか？Y/N > ");
+		String text1 = scanner.nextLine();
+		System.out.println();
 
+		if (text1.equals("Y")) {
+
+			//editInfoをlist2に追加
+			list2.add(inputInfo);
+
+			//確認用
+			for (int i = 0; i < list2.size(); i++) {
+				System.out.println("list2(" + i + ") => " + Arrays.toString(list2.get(i)));
 			}
-			//			bw.append(s+ ",");
+			
+			//csvに変更情報を書き出す処理
+			try {
+				// 出力ファイルの作成
+				FileWriter fw = new FileWriter(file_name, false);
 
-		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+				// PrintWriterクラスのオブジェクトを生成
+				PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+
+				// データを書き込む
+				for (int i = 0; i < list2.size(); i++) {
+					for (int j = 0; j < list2.get(i).length; j++) {
+						pw.print(list2.get(i)[j]);
+
+						//※要修箇所
+						if (!list2.get(i)[j].matches(".{8}")) {
+							pw.print(",");
+						}
+					}
+					//一行読み込み終わったら改行
+					pw.println();
+				}
+				// ファイルを閉じる
+				pw.close();
+
+				// 出力に失敗したときの処理
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+			
+
+			System.out.println("続けて商品を登録しますか？");
+			System.out.print("1:続けて登録する 2:メニューへ戻る > ");
+			String text2 = scanner.nextLine();
+
+			if (text2.equals("1")) {
+				create();
+
+			} else if (text2.equals("2")) {
+				Menu.main(null);
+			}
+
+		} else if (text1.equals("N")) {
+			System.out.println("続けて商品を登録しますか？");
+			System.out.print("1:続けて登録する 2:メニューへ戻る > ");
+			String text2 = scanner.nextLine();
+
+			if (text2.equals("1")) {
+				create();
+
+			} else if (text2.equals("2")) {
+				Menu.main(null);
+			}
+
+		}
+	}
+
+	//商品IDに関するメソッド
+	public void checkId() {
+
+		//商品IDの入力を促すメッセージ
+
+		System.out.print("商品ID > ");
+
+		//入力された内容をインスタンスから取得
+		productId = scanner.nextLine();
+
+		if (!productId.matches(".{10}")) {
+			System.out.println("商品コードは10桁で入力してください。");
+			checkId();
+		}
+
+		//商品IDが半角英数字,半角ハイフン、半角アンダースコアであるか
+		if (!productId.matches("[0-9a-zA-Z\\\\-\\\\_]+")) {
+			System.out.println("商品IDは半角英数字で入力してください。");
+			checkId();
+		}
+
+		//商品IDが重複していないこと
+		//list2の商品コードのデータを全て確認する
+		for (int j = 0; j < list2.size(); j++) {
+
+			//その中で入力したものと一致する商品コードがあれば重複とみなす
+			if (productId.matches(list2.get(j)[1])) {
+				System.out.println("この商品IDはすでに使用されています。");
+				checkId();
+			}
 		}
 
 	}
 
+	//商品コードに関するメソッド
+	public void checkCode() {
+
+		//変更情報を入力する処理
+		System.out.print("商品コ-ド > ");
+		productCode = scanner.nextLine();
+
+		//商品コードが半角数字であるか
+		if (!productCode.matches("^[0-9]*$")) {
+			System.out.println("商品コードは半角数字で入力してください。");
+			checkCode();
+		}
+
+		//商品コードが13桁であるか(空文字はtrueになるように)
+		if (productCode.isEmpty()) {
+		} else if (!productCode.matches(".{13}")) {
+			System.out.println("商品コードは13桁で入力してください。");
+			checkCode();
+		}
+
+		//商品コードが重複していないこと
+		//list2の商品コードのデータを全て確認する
+		for (int j = 0; j < list2.size(); j++) {
+
+			//その中で入力したものと一致する商品コードがあれば重複とみなす
+			if (productCode.matches(list2.get(j)[1])) {
+				System.out.println("この商品コードはすでに使用されています。");
+				checkCode();
+			}
+		}
+	}
+
+	//商品名に関するメソッド
+	public void checkName() {
+
+		//変更情報を入力する処理
+		System.out.print("商品名 > ");
+		productName = scanner.nextLine();
+
+		//商品名が入力されているか
+		if (productName.isEmpty()) {
+			System.out.println("商品名を入力してください");
+			checkName();
+		}
+
+		//商品名が100バイトを超えていないか
+		if (!(productName.getBytes().length <= 100)) {
+			System.out.println("商品名は１００バイト（全角５０文字）以下で入力してください。");
+			checkName();
+		}
+	}
+
+	//商品分類に関するメソッド
+	public void checkKind() {
+
+		//変更情報を入力する処理
+		System.out.print("商品分類 > ");
+		productKind = scanner.nextLine();
+
+		//商品分類が入力されているか
+		if (productKind.isEmpty()) {
+			System.out.println("商品分類を入力してください");
+			checkName();
+		}
+
+		//商品分類が100バイト超えていないか
+		if (!(productKind.getBytes().length <= 100)) {
+			System.out.println("商品分類は１００バイト（全角５０文字）以下で入力してください。");
+			checkKind();
+		}
+	}
+
+	//販売単価に関するメソッド
+	public void checkPrice() {
+
+		//変更情報を入力する処理
+		System.out.print("販売単価 > ");
+		productPrice = scanner.nextLine();
+
+		//販売単価が半角数字で入力されているか
+		if (!productPrice.matches("^[0-9]*$")) {
+			System.out.println("販売単価は半角数字で入力してください。");
+			checkPrice();
+		}
+
+		//販売単価が8桁以下で入力されているか
+		if (!productPrice.matches(".{0,8}")) {
+			System.out.println("販売単価は８桁以下で入力してください。");
+			checkPrice();
+		}
+	}
+
+	//仕入単価に関するメソッド
+	public void checkPurchase() {
+
+		//入力を促すメッセージ
+		System.out.print("仕入単価 > ");
+		productPurchase = scanner.nextLine();
+
+		//仕入単価が半角数字で入力されているか
+		if (!productPurchase.matches("^[0-9]*$")) {
+			System.out.println("仕入単価は半角数字で入力してください。");
+			checkPrice();
+		}
+
+		//仕入単価が8桁以下で入力されているか
+		if (!productPurchase.matches(".{0,8}")) {
+			System.out.println("仕入単価は８桁以下で入力してください。");
+			checkPrice();
+		}
+	}
+
+	//登録日に関するメソッド
+	public void checkRegistDate() {
+
+		//入力を促すメッセージ
+		System.out.print("登録日 > ");
+		registDate = scanner.nextLine();
+
+		//nullまたは空文字で入力されていない場合
+		if (!registDate.matches("null")) {
+			if (!registDate.isEmpty()) {
+
+				//8桁の日付で入力されているか
+				if (!registDate.matches(".{8}")) {
+					System.out.println("登録日は８桁の日付で入力してくだい。");
+					checkRegistDate();
+				}
+
+				//日付で入力されているか
+				try {
+					DateTimeFormatter.ofPattern("uuuuMMdd").withResolverStyle(ResolverStyle.STRICT)
+							.parse(registDate, LocalDate::from);
+				} catch (DateTimeParseException e) {
+					System.out.println("登録日は日付ではありません。８桁の日付で入力してくだい。");
+					checkRegistDate();
+				}
+			}
+		}
+	}
 }
-
-//		create c = new create();
-//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in
-//				));
-//		String str = "";
-//		boolean end = false;
-//////		try {
-////			while(!end) {
-////				System.out.println();		
-////			}
-////		}
-//	}
-
-/*	 public void entry(BufferedReader br) throws IOException{
-		 
-		 
-		System.out.println("商品IDを入力してください。");	
-		
-		Member.setName(br.readLine());
-		while(true) {
-		if (!member.matches("[0-9a-zA-Z\\-\\_]+")) {
-			System.out.print("半角英数とハイフン、アンダースコアのみ入力できます");
-			continue;
-		if (member.length != 10) {
-			System.out.println("商品IDは10桁で入力してください。");
-			continue;
-		} else {
-			System.out.println("商品ID >" + member);
-			break;
-//		}
-		}}
-	 }}}*/
-//		}	catch (IOException e) {
-//			System.out.println(e);
-//		}
